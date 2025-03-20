@@ -1,0 +1,77 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+#body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: rgb(245,245,245);
+}
+.footer {
+    padding: 2rem;
+    font-size: 15px;
+    color: #999;
+}
+.animation{
+	margin-top:70px;
+	display:inline-block;
+	margin-bottom:40px;
+}
+.one, .two, .three {
+	display:block;
+	float:left;
+}
+.one {
+    background: url('assets/gear_glay.svg');
+	width:80px;
+	height:80px;
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	margin-top:30px;
+	margin-right:8px;
+}
+.two {
+	background: url('assets/gear_blue.svg');
+	width:100px;
+	height:100px;
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.three {
+	background: url('assets/gear_glay.svg');
+	width:80px;
+	height:80px;
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	margin-top:-20px;
+	margin-left:0px;
+}
+.spin-one {
+	-webkit-animation: spin-one 6s infinite linear;
+	animation: spin-one 6s infinite linear;
+}
+@keyframes spin-one {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-359deg);
+		transform: rotate(-359deg);
+	}
+}
+.spin-two {
+	-webkit-animation: spin-two 10s infinite linear;
+	animation: spin-two 10s infinite linear;
+}
+@keyframes spin-two {
+	0% {
+		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(-359deg);
+		transform: rotate(359deg);
+	}
+}
