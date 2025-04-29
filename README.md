@@ -1,6 +1,6 @@
 # Main library/framework
 - Vite
-- material-tailwind
+- shadcn
 - react-unity-webgl
 - reactbits
 

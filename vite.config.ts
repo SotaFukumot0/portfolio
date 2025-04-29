@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import license from "rollup-plugin-license"
 import path from 'path'
 
@@ -7,6 +8,7 @@ import path from 'path'
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     license({
       thirdParty: {
         includePrivate: true, // Default is false.
@@ -20,5 +22,10 @@ export default defineConfig({
     watch: {
       usePolling: true
     }
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
 })
