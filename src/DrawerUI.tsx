@@ -1,4 +1,4 @@
-import './Sandbox.css';
+import './DrawerUI.css';
 import { useState } from "react";
 import {
   Drawer,
@@ -13,7 +13,7 @@ import Dock from "./reactbits/Dock/Dock.tsx";
 import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,FileQuestion/*,Settings*/ } from "lucide-react";
 import { SelectObj,CommunicateStrProps,OpenDialog }from "./lib/bridge.ts"
 
-function Sandbox() {
+function DrawerUI() {
   const [open, setOpen] = useState(false);
   const items = [
     { icon: <UserRound size={30} />, label: 'Profile', onClick: () => Selected('Profile') },
@@ -53,4 +53,4 @@ function Sandbox() {
   )
 }
 
-export default Sandbox
+export default DrawerUI

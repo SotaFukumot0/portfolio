@@ -4,10 +4,13 @@ import './index.css'
 import Sandbox from './Sandbox.tsx'
 // @ts-ignore
 import Maintenance from './Maintenance.tsx'
+import DrawerUI from './DrawerUI'
+import DialogUI from './DialogUI.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <Maintenance /> */}
-    <Sandbox/>
+    <DrawerUI/>
+    <DialogUI/>
   </StrictMode>,
 )
