@@ -4,6 +4,10 @@
 - react-unity-webgl
 - reactbits
 
+# Fonts
+- [Noto Sans Japanese](https://fonts.google.com/noto/specimen/Noto+Sans+JP)
+- [Source Sans 3](https://fonts.google.com/specimen/Source+Sans+3)
+- [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue)
 
 # React + TypeScript + Vite
 
