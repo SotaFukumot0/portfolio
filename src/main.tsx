@@ -4,12 +4,14 @@ import './index.css'
 import Sandbox from './Sandbox.tsx'
 // @ts-ignore
 import Maintenance from './Maintenance.tsx'
-import DrawerUI from './DrawerUI'
+import DrawerUI from './DrawerUI.tsx'
 import DialogUI from './DialogUI.tsx'
+import UnityPage from './UnityPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <Maintenance /> */}
+    <UnityPage/>
     <DrawerUI/>
     <DialogUI/>
   </StrictMode>,
