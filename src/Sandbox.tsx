@@ -1,56 +1,47 @@
-import './Sandbox.css';
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
-  Drawer,
-  DrawerContent,
-  DrawerTitle,
-  DrawerHeader,
-  DrawerDescription,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Button } from "@/components/ui/button";
-import Dock from "./reactbits/Dock/Dock.tsx";
-import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,FileQuestion/*,Settings*/ } from "lucide-react";
-import { SelectObj,CommunicateStrProps,OpenDialog }from "./lib/bridge.ts"
+  type Container,
+  ISourceOptions
+} from "@tsparticles/engine";
+import { loadFull } from "tsparticles";
+import jsonParticleOption from "./lib/particlesOption.json"
+import LetterGlitch from "./reactbits/LetterGlitch/LetterGlitch";
 
 function Sandbox() {
-  const [open, setOpen] = useState(false);
-  const items = [
-    { icon: <UserRound size={30} />, label: 'Profile', onClick: () => Selected('Profile') },
-    { icon: <BriefcaseBusiness size={30} />, label: 'Work', onClick: () => Selected('Work') },
-    { icon: <BookText size={30} />, label: 'Sandbox', onClick: () => Selected('Sandbox') },
-    { icon: <Mail size={30} />, label: 'Contact', onClick: () => Selected('Contact') },
-    { icon: <FileQuestion size={30} />, label: 'Help', onClick: () => DirectOpenDialog('Help')},
-  ];
-  function Selected(str:CommunicateStrProps|null|undefined){
-    setOpen(false);
-    SelectObj(str);
-  }
-  function DirectOpenDialog(str:string|null|undefined){
-    setOpen(false);
-    OpenDialog(str);
-  }
+  const [init, setInit] = useState(false);
+
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadFull(engine);
+    }).then(() => setInit(true));
+  }, []);
+
+  // const particlesLoaded = async (container?: Container): Promise<void> => {
+  //   console.log("Particles container:", container);
+  // };
+
+const options: ISourceOptions = useMemo(() => jsonParticleOption as unknown as ISourceOptions, [jsonParticleOption]);
+
+  if (!init) return null;
+
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerTrigger asChild>
-        <Button variant="outline" size="lg" className="drawer-trigger-fixed">
-          <LayoutGrid size={10} />
-        </Button>
-      </DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader></DrawerHeader>
-        <DrawerTitle></DrawerTitle>
-        <DrawerDescription></DrawerDescription>
-        <Dock 
-          items={items}
-          panelHeight={80}
-          baseItemSize={80}
-          magnification={100}
-          dockHeight={10}
-        />
-      </DrawerContent>
-    </Drawer>
-  )
+    <>
+      <LetterGlitch
+        glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
+        glitchSpeed={50}
+        centerVignette={true}
+        outerVignette={false}
+        smooth={true}
+      />
+      <Particles
+        id="tsparticles"
+        // particlesLoaded={particlesLoaded}
+        options={options}
+        style={{ position: "absolute", top: 0, left: 0, zIndex: -1 }}
+      />
+    </>
+  );
 }
 
-export default Sandbox
+export default Sandbox;
