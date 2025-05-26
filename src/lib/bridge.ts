@@ -7,7 +7,7 @@ export function SelectObj(str:CommunicateStrProps|null|undefined) {
   console.log("selectObj",str)
   const { sendMessage, isLoaded } = getUnityMessenger();
   if (isLoaded && sendMessage && str) {
-    sendMessage("WebScripts", "SelectObject", str);
+    sendMessage("Scripts", "SelectObjectFromReact", str);
   } else {
     //for dev
     OpenDialog(str);

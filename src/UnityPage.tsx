@@ -56,7 +56,7 @@ function UnityPage() {
   const onOpenDialog = useCallback((...parameters: ReactUnityEventParameter[]) => {
     const str = parameters[0];
     if (typeof str === "string") {
-      console.log("[Unity -> React] OpenDialog:", str);
+      // console.log("[Unity -> React] OpenDialog:", str);
       OpenDialog(str);
     }
   }, []);

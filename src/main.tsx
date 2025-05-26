@@ -11,8 +11,8 @@ import UnityPage from './UnityPage.tsx'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <Maintenance /> */}
-    <Sandbox/>
-    {/* <UnityPage/> */}
+    {/* <Sandbox/> */}
+    <UnityPage/>
     <DrawerUI/>
     <DialogUI/>
   </StrictMode>,
