@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "@/components/ui/button";
 import Dock from "./reactbits/Dock/Dock.tsx";
-import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,FileQuestion/*,Settings*/ } from "lucide-react";
+import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,Info,/*FileQuestion,Settings*/ } from "lucide-react";
 import { SelectObj,CommunicateStrProps,OpenDialog }from "./lib/bridge.ts"
 
 function DrawerUI() {
@@ -20,7 +20,7 @@ function DrawerUI() {
     { icon: <BriefcaseBusiness size={30} />, label: 'Work', onClick: () => Selected('Work') },
     { icon: <BookText size={30} />, label: 'Sandbox', onClick: () => Selected('Sandbox') },
     { icon: <Mail size={30} />, label: 'Contact', onClick: () => Selected('Contact') },
-    { icon: <FileQuestion size={30} />, label: 'Help', onClick: () => DirectOpenDialog('Help')},
+    { icon: <Info size={30} />, label: 'Info', onClick: () => DirectOpenDialog('Info')},
   ];
   function Selected(str:CommunicateStrProps|null|undefined){
     setOpen(false);
