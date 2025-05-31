@@ -71,10 +71,10 @@ function UnityPage() {
       <Card className="w-screen h-screen p-0 rounded-none shadow-none border-0">
         <Unity
           unityProvider={unityProvider}
-          style={{ width: "100%", height: "100%", display: "block" }}
           devicePixelRatio={devicePixelRatio}
+          className={`w-screen h-screen ${isLoaded ? "visible" : "invisible"}`}
         />
-        {/* <LoadingPage loadingProgression={loadingProgression} isLoaded={isLoaded} /> */}
+        <LoadingPage loadingProgression={loadingProgression} isLoaded={isLoaded} />
       </Card>
   );
 }

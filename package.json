@@ -19,7 +19,7 @@
     "@tsparticles/react": "^3.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.10.5",
+    "framer-motion": "^11.18.2",
     "lucide-react": "^0.503.0",
     "path": "^0.12.7",
     "react": "^19.1.0",

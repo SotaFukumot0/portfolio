@@ -47,6 +47,7 @@ function DrawerUI() {
           baseItemSize={80}
           magnification={100}
           dockHeight={10}
+          className=''
         />
       </DrawerContent>
     </Drawer>

@@ -48,7 +48,7 @@ export default function DialogUI() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="max-w-2xl">
+      <DialogContent className="sm:max-w-10/12">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription></DialogDescription>
