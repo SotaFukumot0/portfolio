@@ -4,7 +4,7 @@ export type CommunicateStrProps="Profile"|"Work"|"Sandbox"|"Contact";
 
 // send to Unity
 export function SelectObj(str:CommunicateStrProps|null|undefined) {
-  console.log("selectObj",str)
+  // console.log("selectObj",str)
   const { sendMessage, isLoaded } = getUnityMessenger();
   if (isLoaded && sendMessage && str) {
     sendMessage("Scripts", "SelectObjectFromReact", str);
@@ -16,6 +16,6 @@ export function SelectObj(str:CommunicateStrProps|null|undefined) {
 }
 // call from Unity
 export function OpenDialog(str:string|null|undefined) {
-  console.log("OpenDialog",str)
+  // console.log("OpenDialog",str)
   OpenDialogUI(str)
 }

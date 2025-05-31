@@ -6,7 +6,7 @@ import {
 } from "@tsparticles/engine";
 import { loadFull } from "tsparticles";
 import jsonParticleOption from "./lib/particlesOption.json"
-import LetterGlitch from "./reactbits/LetterGlitch/LetterGlitch";
+import LetterGlitch from "./reactbits/LetterGlitch/tunedLetterGlitch.tsx";
 import CountUp from './reactbits/CountUp/CountUp';
 
 type LoadingPageProps = {
@@ -71,11 +71,12 @@ function LoadingPage({ loadingProgression, isLoaded }: LoadingPageProps) {
       <Card className="w-screen h-screen p-0 rounded-none shadow-none border-0 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
           <LetterGlitch
-            glitchColors={["#2b4539", "#61dca3", "#61b3dc"]}
+            glitchColors={["#2c14e3", "#e37514", "#14e384"]}
             glitchSpeed={50}
-            centerVignette={true}
-            outerVignette={false}
+            centerVignette={false}
+            outerVignette={true}
             smooth={true}
+            bgClassName="bg-gray-200"
           />
         </div>
         {init && particlesElement}
