@@ -1,34 +1,59 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import UnityPage from './UnityPage'
+import DrawerUI from './DrawerUI'
+import DialogUI from './DialogUI'
+import SimplePage from './SimplePage'
+import { ThemeProvider, useTheme, getCurrentTheme } from './components/theme-provider'
+import { AppContext, WebGPUStatus } from './context/AppContext'
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const { setTheme } = useTheme()
+  const [initialized, setInitialized] = useState(false)
+  const [webGPUStatus, setWebGPUStatus] = useState<WebGPUStatus>('checking')
 
+  useEffect(() => {
+    const init = async () => {
+      const urlParams = new URLSearchParams(window.location.search)
+      const themeParam = urlParams.get('theme')
+      if (themeParam === 'dark' || themeParam === 'light') {
+        setTheme(themeParam)
+        localStorage.setItem('vite-ui-theme', themeParam)
+      }else{
+        localStorage.removeItem('vite-ui-theme')
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        setTheme(prefersDark ? 'dark' : 'light')
+        localStorage.setItem('vite-ui-theme', prefersDark ? 'dark' : 'light')
+      }
+      //webgpu
+      if (!('gpu' in navigator)) {
+        setWebGPUStatus('unsupported')
+      } else {
+        try {
+          const adapter = await (navigator as any).gpu.requestAdapter()
+          setWebGPUStatus(adapter ? 'supported' : 'unsupported')
+        } catch {
+          setWebGPUStatus('unsupported')
+        }
+      }
+      setInitialized(true)
+    }
+
+    init()
+  }, [])
+
+  if (!initialized) return null
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <ThemeProvider defaultTheme={getCurrentTheme()}>
+      <AppContext.Provider value={{ webGPUStatus, setWebGPUStatus }}>
+        {webGPUStatus === 'unsupported' ? (
+          <SimplePage />
+        ) : (
+          <UnityPage />
+        )}  
+        <DrawerUI />
+        <DialogUI />
+      </AppContext.Provider>
+    </ThemeProvider>
   )
 }
 

@@ -18,11 +18,11 @@ function DrawerUI() {
   const [baseItemSize, setBaseItemSize] = useState(80);
   const dockRef = useRef<HTMLDivElement | null>(null);
   const items = [
-    { icon: <UserRound size={30} />, label: 'Profile', onClick: () => Selected('Profile'), className:'rounded-lg border-4 !border-blue-500' },
-    { icon: <BriefcaseBusiness size={30} />, label: 'Work', onClick: () => Selected('Work'), className:'rounded-lg border-4 !border-green-300' },
-    { icon: <BookText size={30} />, label: 'Sandbox', onClick: () => Selected('Sandbox'), className:'rounded-lg border-4 !border-orange-300' },
-    { icon: <Mail size={30} />, label: 'Contact', onClick: () => Selected('Contact'), className:'rounded-lg border-4 !border-red-400' },
-    { icon: <Info size={30} />, label: 'Info', onClick: () => DirectOpenDialog('Info'), className:'rounded-lg border-4 !border-black-200' },
+    { icon: <UserRound size={30} />, label: 'Profile', onClick: () => Selected('Profile'), className:'rounded-lg border-4 dark:bg-black !border-blue-500' },
+    { icon: <BriefcaseBusiness size={30} />, label: 'Work', onClick: () => Selected('Work'), className:'rounded-lg border-4 dark:bg-black !border-green-300' },
+    { icon: <BookText size={30} />, label: 'Sandbox', onClick: () => Selected('Sandbox'), className:'rounded-lg border-4 dark:bg-black !border-orange-300' },
+    { icon: <Mail size={30} />, label: 'Contact', onClick: () => Selected('Contact'), className:'rounded-lg border-4 dark:bg-black !border-red-400' },
+    { icon: <Info size={30} />, label: 'Info', onClick: () => DirectOpenDialog('Info'), className:'rounded-lg border-4 dark:bg-black !border-black-200' },
   ];
   function Selected(str:CommunicateStrProps|null|undefined){
     setOpen(false);

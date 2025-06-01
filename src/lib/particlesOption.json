@@ -32,7 +32,7 @@
   },
   "detectRetina": true,
   "duration": 0,
-  "fpsLimit": 120,
+  "fpsLimit": 60,
   "interactivity": {
     "detectsOn": "window",
     "events": {
@@ -466,7 +466,7 @@
         "value": "#ffffff"
       },
       "consent": false,
-      "distance": 150,
+      "distance": 200,
       "enable": true,
       "frequency": 1,
       "opacity": 1,
@@ -481,7 +481,7 @@
         "enable": false,
         "frequency": 1
       },
-      "width": 1,
+      "width": 5,
       "warp": false
     },
     "repulse": {

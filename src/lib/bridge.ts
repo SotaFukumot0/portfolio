@@ -19,3 +19,10 @@ export function OpenDialog(str:string|null|undefined) {
   // console.log("OpenDialog",str)
   OpenDialogUI(str)
 }
+// set Theme in Unity
+export function SetThemeUnity(theme:string|null|undefined){
+  const { sendMessage, isLoaded } = getUnityMessenger();
+  if (isLoaded && sendMessage && theme) {
+    sendMessage("Scripts", "SetThemeFromReact", theme);
+  }
+}

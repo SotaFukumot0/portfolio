@@ -53,7 +53,7 @@ export default function DialogUI() {
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="prose prose-sm max-w-none overflow-y-auto max-h-[60vh]">
+        <div className="prose prose-sm dark:prose-invert text-foreground max-w-none overflow-y-auto max-h-[60vh]">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}

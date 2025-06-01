@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "./components/ui/button.tsx";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import {
   ISourceOptions
@@ -8,6 +9,7 @@ import { loadFull } from "tsparticles";
 import jsonParticleOption from "./lib/particlesOption.json"
 import LetterGlitch from "./reactbits/LetterGlitch/tunedLetterGlitch.tsx";
 import CountUp from './reactbits/CountUp/CountUp';
+import { getCurrentTheme } from "./components/theme-provider.tsx";
 
 type LoadingPageProps = {
   loadingProgression: number;
@@ -19,11 +21,13 @@ function LoadingPage({ loadingProgression, isLoaded }: LoadingPageProps) {
   const [fadeOut, setFadeOut] = useState(false);
   const [init, setInit] = useState(false);
   const baseParticleCountRef = useRef<number | null>(null);
-   const countUpEndedRef = useRef(false);
+  const countUpEndedRef = useRef(false);
+  const [theme,setTheme]=useState("system");
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadFull(engine);
     }).then(() => setInit(true));
+    setTheme(getCurrentTheme()=="light"?"dark":"light");
   }, []);
 
   const handleCountUpEnd = () => {
@@ -44,6 +48,24 @@ function LoadingPage({ loadingProgression, isLoaded }: LoadingPageProps) {
     // const count = baseParticleCount;
     const dynamicOptions = {
       ...jsonParticleOption,
+      backgroundMask:{
+        composite: "destination-out",
+        cover:{
+          color:{
+            opacity: 1,
+            value: getCurrentTheme()=="light"?{
+              r: 255,
+              g: 255,
+              b: 255
+            }:{
+              r: 30,
+              g: 30,
+              b: 30
+            }
+          },
+        },
+        enable: true
+      },
       particles: {
         ...jsonParticleOption.particles,
         number: {
@@ -76,7 +98,7 @@ function LoadingPage({ loadingProgression, isLoaded }: LoadingPageProps) {
             centerVignette={false}
             outerVignette={true}
             smooth={true}
-            bgClassName="bg-gray-200"
+            bgClassName="bg-gray-200 dark:bg-black"
           />
         </div>
         {init && particlesElement}
@@ -90,8 +112,18 @@ function LoadingPage({ loadingProgression, isLoaded }: LoadingPageProps) {
               direction="up"
               duration={1}
               onEnd={handleCountUpEnd}
-              className="text-primary text-4xl font-bold"
+              className="text-primary text-4xl font-bold m-4"
             />
+            <Button
+              onClick={() => {
+                const currentUrl = new URL(window.location.href)
+                currentUrl.searchParams.set('theme', theme)
+                window.location.href = currentUrl.toString()
+              }}
+              className="mt-4"
+            >
+              {`switch to ${theme} mode`}
+            </Button>
           </CardContent>
         </Card>
       </Card>

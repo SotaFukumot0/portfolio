@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card"
 import { ReactUnityEventParameter } from 'react-unity-webgl/distribution/types/react-unity-event-parameters';
 import { OpenDialog }from "./lib/bridge.ts"
 import LoadingPage from "./LoadingPage";
+import { getCurrentTheme } from './components/theme-provider.tsx';
 
 let unitySendMessage: ((gameObjectName: string, methodName: string, parameter?: ReactUnityEventParameter) => void);
 let unityIsLoaded = false;
@@ -28,10 +29,14 @@ function UnityPage() {
     productName: "MyPortfolio",
     productVersion: "0.1.0",
   });
-  //DynamicDevicePixelRatio
   const [devicePixelRatio, setDevicePixelRatio] = useState(
     window.devicePixelRatio
   );
+  //LoadedTrigger
+  useEffect(()=>{
+    isLoaded ? sendMessage("Scripts", "SetThemeFromReact", getCurrentTheme()) : "";
+  },[sendMessage]);
+  //DynamicDevicePixelRatio
   useEffect(
     function () {
       const updateDevicePixelRatio = function () {
