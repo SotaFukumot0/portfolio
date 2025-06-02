@@ -8,6 +8,7 @@ import LoadingPage from "./LoadingPage";
 import { getCurrentTheme } from './components/theme-provider.tsx';
 
 const unityBase = import.meta.env.VITE_UNITY_BASE_PATH
+console.log("VITE_UNITY_BASE_PATH", import.meta.env.VITE_UNITY_BASE_PATH);
 
 let unitySendMessage: ((gameObjectName: string, methodName: string, parameter?: ReactUnityEventParameter) => void);
 let unityIsLoaded = false;
