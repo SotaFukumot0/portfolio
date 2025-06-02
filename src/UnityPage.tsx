@@ -7,6 +7,8 @@ import { OpenDialog }from "./lib/bridge.ts"
 import LoadingPage from "./LoadingPage";
 import { getCurrentTheme } from './components/theme-provider.tsx';
 
+const unityBase = import.meta.env.VITE_UNITY_BASE_PATH
+
 let unitySendMessage: ((gameObjectName: string, methodName: string, parameter?: ReactUnityEventParameter) => void);
 let unityIsLoaded = false;
 
@@ -19,11 +21,11 @@ export function getUnityMessenger() {
 
 function UnityPage() {
   const { unityProvider,isLoaded,loadingProgression,sendMessage,addEventListener,removeEventListener } = useUnityContext({
-    loaderUrl: "Unity/Build/Builds.loader.js",
-    dataUrl: "Unity/Build/Builds.data",
-    frameworkUrl: "Unity/Build/Builds.framework.js",
-    codeUrl: "Unity/Build/Builds.wasm",
-    workerUrl: "Unity/Build/Builds.worker.js",
+    loaderUrl: `${unityBase}/Builds.loader.js`,
+    dataUrl: `${unityBase}/Builds.data`,
+    frameworkUrl: `${unityBase}/Builds.framework.js`,
+    codeUrl: `${unityBase}/Builds.wasm`,
+    workerUrl: `${unityBase}/Builds.worker.js`,
     streamingAssetsUrl: "StreamingAssets",
     companyName: "SotaFukumoto",
     productName: "MyPortfolio",

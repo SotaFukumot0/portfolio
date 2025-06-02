@@ -25,6 +25,9 @@ export default defineConfig({
     },
     watch: {
       usePolling: true
+    },
+    fs: {
+      allow: ['.', 'Unity']
     }
   },
   resolve: {
