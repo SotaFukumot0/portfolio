@@ -26,7 +26,7 @@ function UnityPage() {
     dataUrl: `${unityBase}/Builds.data`,
     frameworkUrl: `${unityBase}/Builds.framework.js`,
     codeUrl: `${unityBase}/Builds.wasm`,
-    workerUrl: `${unityBase}/Builds.worker.js`,
+    workerUrl: `OwnWorker/Builds.worker.js`,
     streamingAssetsUrl: "StreamingAssets",
     companyName: "SotaFukumoto",
     productName: "MyPortfolio",

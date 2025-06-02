@@ -1,0 +1,15 @@
+{
+  "name": "cloudflare",
+  "version": "1.0.0",
+  "main": "upload.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "r2upload": "node upload.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "wrangler": "^4.18.0"
+  }
+}
