@@ -44,6 +44,7 @@ const App = () => {
   if (!initialized) return null
   return (
     <ThemeProvider defaultTheme={getCurrentTheme()}>
+      <div className="font-sans3">
       <AppContext.Provider value={{ webGPUStatus, setWebGPUStatus }}>
         {webGPUStatus === 'unsupported' ? (
           <SimplePage />
@@ -53,6 +54,7 @@ const App = () => {
         <DrawerUI />
         <DialogUI />
       </AppContext.Provider>
+      </div>
     </ThemeProvider>
   )
 }

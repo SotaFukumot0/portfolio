@@ -8,7 +8,6 @@ import {
 import { loadFull } from "tsparticles";
 import jsonParticleOption from "./lib/particlesOption.json"
 import LetterGlitch from "./reactbits/LetterGlitch/tunedLetterGlitch.tsx";
-import CountUp from './reactbits/CountUp/CountUp';
 import { getCurrentTheme } from "./components/theme-provider.tsx";
 
 function LoadingPage() {

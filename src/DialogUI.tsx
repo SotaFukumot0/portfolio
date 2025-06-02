@@ -50,10 +50,10 @@ export default function DialogUI() {
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-10/12">
         <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
+          <DialogTitle className="font-sans3">{title}</DialogTitle>
           <DialogDescription></DialogDescription>
         </DialogHeader>
-        <div className="prose prose-sm dark:prose-invert text-foreground max-w-none overflow-y-auto max-h-[60vh]">
+        <div className="prose prose-sm dark:prose-invert text-foreground max-w-none overflow-y-auto max-h-[60vh] font-jp">
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings]}

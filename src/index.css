@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @import "tw-animate-css";
@@ -228,5 +229,11 @@
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
+  }
+  .font-jp {
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+  .font-sans3 {
+    font-family: 'Source Sans 3', sans-serif;
   }
 }
