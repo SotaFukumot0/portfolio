@@ -1,19 +1,21 @@
 ### 目次
 - [更新履歴](#history)
 - [更新予定](#todo)
+- [ソースコード](#pagesourcecode)
 - [ライセンス](#license)
 --- 
 # History
 > I'll update it when I feel like it.
-- 
+- 2025/06/03 : Launched
 
 # TODO
-- mobile device compatible
-- dark mode compatible
 - tune performances
 
+# PageSourceCode
+- [Github](https://github.com/SotaFukumot0/portfolio)
+
 # License
-© 2025 SotaFukumoto
+Copyright © 2025 SotaFukumoto All Rights Reserved.
 ## OtherLicense
 - Font: Bebas Neue ( Used in Unity )
     - ``` 
