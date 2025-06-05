@@ -1,6 +1,6 @@
 import { getUnityMessenger } from "../UnityPage";
 import { OpenDialogUI } from "../DialogUI.tsx"
-export type CommunicateStrProps="Profile"|"Work"|"Sandbox"|"Contact";
+export type CommunicateStrProps="Profile"|"Work"|"Sandbox"|"Contact"|"Default";
 
 // send to Unity
 export function SelectObj(str:CommunicateStrProps|null|undefined) {
@@ -17,6 +17,7 @@ export function SelectObj(str:CommunicateStrProps|null|undefined) {
 // call from Unity
 export function OpenDialog(str:string|null|undefined) {
   // console.log("OpenDialog",str)
+  if(str && str=="Default") return;
   OpenDialogUI(str)
 }
 // set Theme in Unity

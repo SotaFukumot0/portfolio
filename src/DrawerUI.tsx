@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/tunedDrawer";
 import { Button } from "@/components/ui/button";
 import Dock from "./reactbits/Dock/tunedDock.tsx";
-import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,Info,/*FileQuestion,Settings*/ } from "lucide-react";
+import { LayoutGrid,UserRound,BriefcaseBusiness,BookText,Mail,Info,Undo2,/*FileQuestion,Settings*/ } from "lucide-react";
 import { SelectObj,CommunicateStrProps,OpenDialog }from "./lib/bridge.ts"
 
 function DrawerUI() {
@@ -18,6 +18,7 @@ function DrawerUI() {
   const [baseItemSize, setBaseItemSize] = useState(80);
   const dockRef = useRef<HTMLDivElement | null>(null);
   const items = [
+    { icon: <Undo2 size={30} />, label: 'Home', onClick: () => Selected('Default'), className:'rounded-lg border-4 dark:bg-black !border-black-200' },
     { icon: <UserRound size={30} />, label: 'Profile', onClick: () => Selected('Profile'), className:'rounded-lg border-4 dark:bg-black !border-blue-500' },
     { icon: <BriefcaseBusiness size={30} />, label: 'Work', onClick: () => Selected('Work'), className:'rounded-lg border-4 dark:bg-black !border-green-300' },
     { icon: <BookText size={30} />, label: 'Sandbox', onClick: () => Selected('Sandbox'), className:'rounded-lg border-4 dark:bg-black !border-orange-300' },
@@ -40,7 +41,7 @@ function DrawerUI() {
           const dockWidth = dockRef.current.scrollWidth;
           const windowWidth = window.innerWidth;
           if (dockWidth > windowWidth * 0.9) {
-            setBaseItemSize(50);
+            setBaseItemSize(40);
           }
         }
       }, 0); // 次のレンダリングタイミングに遅らせる
