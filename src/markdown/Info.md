@@ -7,6 +7,7 @@
 # History
 > I'll update it when I feel like it.
 - 2025/06/03 : Launched
+- 2025/07/15 : Sandbox Updated
 
 # TODO
 - tune performances

@@ -1,6 +1,6 @@
 main = "worker.ts"
 name = "unity-r2-worker"
-account_id = "4da06b8dd82a245849a974f3dcfc3365"
+account_id = "xxxxxxxxxxxxxxxxxxxxxxx"
 workers_dev = true
 compatibility_date = "2025-06-01"
 

@@ -1,4 +1,5 @@
 # MyPortfolio
+[View Live Site](https://portfolio-2yw.pages.dev/)(CloudFlare)
 ## Main library/framework
 - Vite
 - shadcn
