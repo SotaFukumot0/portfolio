@@ -5,7 +5,7 @@
 - [NEZU Project](#nezu-project)
 --- 
 ## VRM WebViewer
-### ![VRM_WebViewer_Demo](../../public/mdAssets/vrm_webViewer.webp)
+### ![VRM_WebViewer_Demo](/mdAssets/vrm_webViewer.webp)
 ### [URL](https://github.com/SotaFukumot0/svelte-unityweb-vrm-sandbox)(Github)
 - Svelte + UnityWebBuild + VRM
 - 下記機能を主としたサンプルプロジェクト
@@ -15,9 +15,9 @@
 ---
 ## NEZU Project
 > © Masahumi Morino
-### ![NEZU_Project_Demo1](../../public/mdAssets/nezu_livestage.webp)
-### ![NEZU_Project_Demo2](../../public/mdAssets/nezu_outdoor.webp)
-### ![NEZU_Project_Demo3](../../public/mdAssets/nezu_indoor.webp)
+### ![NEZU_Project_Demo1](/mdAssets/nezu_livestage.webp)
+### ![NEZU_Project_Demo2](/mdAssets/nezu_outdoor.webp)
+### ![NEZU_Project_Demo3](/mdAssets/nezu_indoor.webp)
 ### [URL](https://masafumi-python.com/omake/)(外部リンク)
 - 販促を目的としたバーチャルYoutuber”Nezu”のプロジェクト
 - 下記関連を担当
