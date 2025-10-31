@@ -46,7 +46,23 @@ export default function DialogUI() {
       }
     };
   }, []);
-
+  const components = {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    img({ src, alt }: any) {
+      if (src && src.endsWith(".mp3")) {
+        return (
+          <div className="my-3">
+            <audio controls preload="none" className="w-full rounded-md">
+              <source src={src} type="audio/mpeg" />
+              {alt || "Audio playback not supported"}
+            </audio>
+          </div>
+        );
+      }
+      // default
+      return <img src={src} alt={alt} className="rounded-md my-3" />;
+    },
+  };
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="sm:max-w-10/12">
@@ -58,6 +74,7 @@ export default function DialogUI() {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeSlug, rehypeAutolinkHeadings,rehypeRaw]}
+            components={components}
           >{markdown}</ReactMarkdown>
         </div>
       </DialogContent>
